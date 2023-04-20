@@ -1,0 +1,13 @@
+## tekton pipeline install
+kubectl apply --filename [https://storage.googleapis.com/tekton-releases/pipeline/latest/release.yaml](https://storage.googleapis.com/tekton-releases/pipeline/latest/release.yaml)
+
+## check
+kubectl get po -n tekton-pipelines
+kubectl get po -n tekton-pipelines-resolvers
+
+## tekton dashboard install 
+k apply -f [https://storage.googleapis.com/tekton-releases/dashboard/previous/v0.34.0/release.yaml](https://storage.googleapis.com/tekton-releases/dashboard/previous/v0.34.0/release.yaml)
+
+## can change svc
+`kubectl patch svc tekton-dashboard -n tekton-pipelines --type='json' -p '[{"op": "replace", "path": "/spec/type", "value": "NodePort"}]'`
+`kubectl patch svc tekton-dashboard -n tekton-pipelines --type='json' -p '[{"op": "replace", "path": "/spec/ports/0/nodePort", "value": 30001}]'`
