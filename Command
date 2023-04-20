@@ -11,3 +11,6 @@ k apply -f [https://storage.googleapis.com/tekton-releases/dashboard/previous/v0
 ## can change svc
 `kubectl patch svc tekton-dashboard -n tekton-pipelines --type='json' -p '[{"op": "replace", "path": "/spec/type", "value": "NodePort"}]'`
 `kubectl patch svc tekton-dashboard -n tekton-pipelines --type='json' -p '[{"op": "replace", "path": "/spec/ports/0/nodePort", "value": 30001}]'`
+
+## dashboard
+![2023-04-16 17 15 30.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/4a295355-f05c-4c3d-a2e1-ea919efbc5ca/2023-04-16_17_15_30.png)
